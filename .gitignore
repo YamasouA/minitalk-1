@@ -1,0 +1,17 @@
+## test tool
+
+# except directory
+
+# object file
+*.o
+
+# library file
+*.a
+
+# execute file
+*.out
+./clinet
+./server
+
+# editor setting directory
+.vscode
