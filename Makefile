@@ -6,7 +6,7 @@
 #    By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/30 23:12:52 by mmizuno           #+#    #+#              #
-#    Updated: 2021/05/31 23:11:45 by mmizuno          ###   ########.fr        #
+#    Updated: 2021/06/01 01:41:15 by mmizuno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,34 +66,33 @@ ESC_CLR_WHITE		= \033[37m
 
 # --------------------------------- $(NAME) ---------------------------------- #
 
-$(NAME):			$(LIBFT_NAME) $(CLIENT_NAME) #$(SERVER_NAME)
+$(NAME):			$(CLIENT_NAME) #$(SERVER_NAME)
 					@echo "$(ESC_CLR_GREEN)"
-					@echo "[ $(NAME) successfully compiled!! ]"
+					@echo "[ $(NAME) successfully compiled !! ]"
 					@echo "$(ESC_CLR_RESET)"
 
 # --------------------------------- $(LIBFT) --------------------------------- #
 
 $(LIBFT_NAME):
-					@cd $(LIBFT_DIR) && make re
-					@cd $(LIBFT_DIR) && make clean
+					@cd $(LIBFT_DIR) && make
 					@echo "$(ESC_CLR_YELLOW)"
-					@echo "[ $(LIBFT_NAME) successfully compiled!! ]"
+					@echo "[ $(LIBFT_NAME) successfully compiled !! ]"
 					@echo "$(ESC_CLR_RESET)"
 
 # -------------------------------- $(CLIENT) --------------------------------- #
 
-$(CLIENT_NAME):		$(CLIENT_OBJS)
+$(CLIENT_NAME):		$(LIBFT_NAME) $(CLIENT_OBJS)
 					$(CC) $(CFLAGS) $(CLIENT_OBJS) $(LIBDIR) $(LIBS) -o $(CLIENT_NAME)
 					@echo "$(ESC_CLR_YELLOW)"
-					@echo "[ $(CLIENT_NAME) successfully compiled!! ]"
+					@echo "[ $(CLIENT_NAME) successfully compiled !! ]"
 					@echo "$(ESC_CLR_RESET)"
 
 # -------------------------------- $(SERVER) --------------------------------- #
 
-$(SERVER_NAME):		$(SERVER_OBJS)
+$(SERVER_NAME):		$(LIBFT_NAME) $(SERVER_OBJS)
 					$(CC) $(CFLAGS) $(SERVER_OBJS) $(LIBDIR) $(LIBS) -o $(SERVER_NAME)
 					@echo "$(ESC_CLR_YELLOW)"
-					@echo "[ $(SERVER_NAME) successfully compiled!! ]"
+					@echo "[ $(SERVER_NAME) successfully compiled !! ]"
 					@echo "$(ESC_CLR_RESET)"
 
 # ----------------------------------- all ------------------------------------ #
@@ -107,14 +106,15 @@ bonus:				$(NAME)
 # ---------------------------------- clean ----------------------------------- #
 
 clean:
+					@cd $(LIBFT_DIR) && make clean
 					$(RM) $(CLIENT_OBJS) $(SERVER_OBJS)
 
 # ---------------------------------- fclean ---------------------------------- #
 
 fclean:				clean
+					@cd $(LIBFT_DIR) && make fclean
 					$(RM) $(CLIENT_NAME)
 					$(RM) $(SERVER_NAME)
-					$(RM) $(LIBFT_DIR)$(LIBFT_NAME)
 
 # ------------------------------------ re ------------------------------------ #
 
