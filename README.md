@@ -1,5 +1,7 @@
 # minitalk
 
+![jaeskim's 42Project Score](https://badge42.herokuapp.com/api/project/mmizuno/minitalk)  
+
 Summary:  
 The purpose of this project is to code a small data exchange program using UNIX signals.  
 
