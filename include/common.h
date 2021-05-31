@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 01:16:39 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/01 01:20:20 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/01 02:21:26 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,7 @@
 */
 
 # define USAGE_MSG_HEADER		"USAGE: "
-# define USAGE_MSG_DESCRIPTION	"./clinet [SERVER PID] [WANNA SEND MESSAGE]"
 # define ERROR_MSG_HEADER		"ERROR: "
-# define ERROR_MSG_PID_TYPE		"SERVER PID must be number!!"
-# define ERROR_MSG_PID_RANGE	"SERVER PID is not in PID range!!"
-# define ERROR_MSG_PID_INVALID	"SERVER PID is INVALID!!"
-# define ERROR_MSG_MSG_INVALID	"WANNA SEND MESSAGE is INVALID!!"
 
 /*
 ** ----------------------------------- color -----------------------------------
