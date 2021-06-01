@@ -6,7 +6,7 @@
 #    By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/30 23:12:52 by mmizuno           #+#    #+#              #
-#    Updated: 2021/06/01 22:58:10 by mmizuno          ###   ########.fr        #
+#    Updated: 2021/06/01 23:51:54 by mmizuno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ CLIENT_OBJS			= $(CLIENT_SRCS:.c=.o)
 SERVER_NAME			= server
 SERVER_INC_DIR		= ./include/
 SERVER_SRC_DIR		= ./source/server/
-SERVER_SRC_NAME		= malloc_utility.c \
+SERVER_SRC_NAME		= init_server_vars.c \
+					  malloc_utility.c \
 					  set_signal.c \
 					  recieve_packet.c \
 					  print_message.c \
@@ -74,7 +75,7 @@ ESC_CLR_WHITE		= \033[37m
 
 # --------------------------------- $(NAME) ---------------------------------- #
 
-$(NAME):			$(CLIENT_NAME) #$(SERVER_NAME)
+$(NAME):			$(CLIENT_NAME) $(SERVER_NAME)
 					@echo "$(ESC_CLR_GREEN)"
 					@echo "[ $(NAME) successfully compiled !! ]"
 					@echo "$(ESC_CLR_RESET)"
