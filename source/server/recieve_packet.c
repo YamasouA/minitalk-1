@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 06:04:38 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/02 00:53:14 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/02 06:50:08 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void	recieve_bit_message(t_server_vars *vars, int signal)
 	vars->message_bit_count++;
 	if (vars->message_bit_count == MSG_BIT_COUNT)
 	{
+// printf("%d|%d\n", vars->message_bits, vars->message_bit_count);
+// if (vars->message)
+// 	printf("%s\n", vars->message);
 		if (vars->message_bits == ASCII_EOT)
 		{
 			print_recieve_message(vars);
