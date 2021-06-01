@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 01:16:39 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/01 02:21:26 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/01 22:42:44 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@
 # define PID_BIT_COUNT			32
 # define MSG_BIT_COUNT			8
 
+# define ASCII_EOT				0x4
+
 /*
 ** ---------------------------------- message ----------------------------------
 */
 
 # define USAGE_MSG_HEADER		"USAGE: "
 # define ERROR_MSG_HEADER		"ERROR: "
+# define SUCCESS_MSG_HEADER		"SUCCESS: "
 
 /*
 ** ----------------------------------- color -----------------------------------
@@ -53,5 +56,16 @@
 
 # define _GNU_SOURCE
 # include "../library/libft/includes/libft.h"
+# include <signal.h>
+# include <stdint.h>
+# include <stdbool.h>
+
+/*
+** =========================== prototype declaration ===========================
+*/
+
+void	print_success_message(char *message);
+void	print_failure_message(char *error_message);
+void	print_pid(char *client_or_server, int32_t pid);
 
 #endif

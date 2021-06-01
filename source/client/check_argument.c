@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 00:10:19 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/01 00:06:42 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/01 22:50:56 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ static bool	check_message_is_string(char *send_message)
 void	check_argument(int argc, char **argv)
 {
 	if (argc != 3)
-		exit_client(USAGE_MSG_HEADER USAGE_MSG_DESCRIPTION);
+		exit_client_failure(USAGE_MSG_HEADER USAGE_MSG_DESCRIPTION);
 	if (!check_pid_server_is_digit(argv[1]))
-		exit_client(ERROR_MSG_HEADER ERROR_MSG_PID_TYPE);
+		exit_client_failure(ERROR_MSG_HEADER ERROR_MSG_PID_TYPE);
 	if (!check_pid_server_is_in_range(ft_atoi(argv[1])))
-		exit_client(ERROR_MSG_HEADER ERROR_MSG_PID_RANGE);
+		exit_client_failure(ERROR_MSG_HEADER ERROR_MSG_PID_RANGE);
 	if (!check_message_is_string(argv[2]))
-		exit_client(ERROR_MSG_HEADER ERROR_MSG_MSG_INVALID);
+		exit_client_failure(ERROR_MSG_HEADER ERROR_MSG_MSG_INVALID);
 }
