@@ -6,20 +6,20 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 22:21:53 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/02 06:55:35 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 01:09:32 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/server.h"
 
 /*!
-** @brief	print recieve message
-** @param	recieve_message		recieve message
+** @brief	print receive message
+** @param	receive_message		receive message
 ** @return	none
 */
-void	print_recieve_message(t_server_vars *vars)
+void	print_receive_message(t_server_vars *vars)
 {
-	ft_putstr_fd("[ client ProcessID: ", STDOUT_FILENO);
+	ft_putstr_fd("[ CLIENT ProcessID: ", STDOUT_FILENO);
 	ft_putnbr_fd(vars->pid_client_bits, STDOUT_FILENO);
 	ft_putstr_fd(" ]", STDOUT_FILENO);
 	ft_putendl_fd(vars->message, STDOUT_FILENO);

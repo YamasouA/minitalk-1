@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:29:52 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/01 22:53:50 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/03 21:32:13 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,22 @@
 ** ---------------------------------- message ----------------------------------
 */
 
-# define USAGE_MSG_DESCRIPTION	"./clinet [SERVER PID] [WANNA SEND MESSAGE]"
-# define ERROR_MSG_PID_TYPE		"SERVER PID must be number !!"
-# define ERROR_MSG_PID_RANGE	"SERVER PID is not in PID range !!"
-# define ERROR_MSG_PID_INVALID	"SERVER PID is INVALID !!"
-# define ERROR_MSG_MSG_INVALID	"WANNA SEND MESSAGE is INVALID !!"
-# define SUCCESS_MSG_SEND_DONE	"Done to send Massage !!"
+# define USAGE_MSG_DESCRIPTION		"./clinet [SERVER PID] [SEND MESSAGE]"
+# define ERROR_MSG_PID_TYPE			"SERVER ProcessID must be number !!"
+# define ERROR_MSG_PID_RANGE		"SERVER ProcessID is not in PID range !!"
+# define ERROR_MSG_PID_INVALID		"SERVER ProcessID is INVALID !!"
+# define ERROR_MSG_MSG_INVALID		"SEND MESSAGE is INVALID !!"
+# define ERROR_MSG_FAIL_SEND_SIGNAL	"Fail to send Signal !!"
+# define SUCCESS_MSG_DONE_SEND_PID	"Done to send CLIENT ProcessID !!"
+# define ERROR_MSG_FAIL_SEND_PID	"Fail to send CLIENT ProcessID !!"
+# define ERROR_MSG_FAIL_SEND_MSG	"Fail to send Message !!"
+# define SUCCESS_MSG_DONE_SEND_MSG	"Done to send Message !!"
 
 /*
 ** ================================== library ==================================
 */
 
 # include "common.h"
-
-/*
-** ============================== global variable ==============================
-*/
-
-// extern int	g_receive_signal;
 
 /*
 ** =========================== prototype declaration ===========================

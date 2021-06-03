@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_signal.c                                       :+:      :+:    :+:   */
+/*   set_signal_common.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 03:56:30 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/02 07:06:24 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 01:12:56 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/server.h"
+#include "../../include/common.h"
 
 static void	handle_sigusr1(int signal)
 {
@@ -35,9 +35,6 @@ static void	handle_sigint(int signal)
 */
 void	set_signal(void)
 {
-	// signal(SIGUSR1, &handle_sigusr1);
-	// signal(SIGUSR2, &handle_sigusr2);
-	// signal(SIGINT, &handle_sigint);
 	struct sigaction	sa_sigusr1;
 	struct sigaction	sa_sigusr2;
 	struct sigaction	sa_sigint;

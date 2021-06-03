@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:29:52 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/02 01:21:12 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 01:09:09 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,15 @@
 ** ---------------------------------- message ----------------------------------
 */
 
-# define USAGE_MSG_DESCRIPTION	"./server"
-# define ERROR_MSG_FAIL_MALLOC	"Fail to Allocate Memory !!"
+# define USAGE_MSG_DESCRIPTION		"./server"
+# define ERROR_MSG_FAIL_MALLOC		"Fail to Allocate Memory !!"
+# define ERROR_MSG_FAIL_SEND_ACK	"Fail to send Packet !!"
 
 /*
 ** ================================== library ==================================
 */
 
 # include "common.h"
-
-
-#include <stdio.h>
-
-
-/*
-** ============================== global variable ==============================
-*/
-
-extern int	g_receive_signal;
-extern bool	g_terminate_flag;
 
 /*
 ** ================================== struct ===================================
@@ -64,14 +54,11 @@ void	exit_server(t_server_vars *vars, char *message, bool success);
 void	init_server_vars(t_server_vars *vars);
 void	init_server_vars_message_bits(t_server_vars *vars);
 
-void	set_signal(void);
-
-void	recieve_bit(t_server_vars *v, int signal);
+void	receive_bit(t_server_vars *v, int signal);
 
 void	append_receive_message(t_server_vars *vars);
-void	free_recieve_message(t_server_vars *vars);
+void	free_receive_message(t_server_vars *vars);
 
-void	print_recieve_message(t_server_vars *vars);
-
+void	print_receive_message(t_server_vars *vars);
 
 #endif

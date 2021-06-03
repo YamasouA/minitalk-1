@@ -6,11 +6,14 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:28:42 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/01 22:46:09 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 01:10:13 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/client.h"
+
+int		g_receive_signal;
+bool	g_terminate_flag;
 
 /*!
 ** @brief	exit client (when error occared)
@@ -35,11 +38,13 @@ int	main(int argc, char **argv)
 	int32_t		pid_client;
 
 	check_argument(argc, argv);
+	g_receive_signal = 0;
+	g_terminate_flag = false;
 	pid_server = ft_atoi(argv[1]);
 	pid_client = getpid();
-	print_pid("client", pid_client);
+	set_signal();
+	print_pid("CLIENT", pid_client);
 	send_bits_pid(pid_server, pid_client);
 	send_bits_message(pid_server, argv[2]);
-	print_success_message(SUCCESS_MSG_HEADER SUCCESS_MSG_SEND_DONE);
 	return (EXIT_SUCCESS);
 }

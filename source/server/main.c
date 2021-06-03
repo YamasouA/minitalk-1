@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:28:42 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/02 06:35:20 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 00:14:35 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	g_terminate_flag;
 */
 void	exit_server(t_server_vars *vars, char *message, bool success)
 {
-	free_recieve_message(vars);
+	free_receive_message(vars);
 	if (success)
 	{
 		print_success_message(message);
@@ -50,19 +50,6 @@ static void	check_argument(int argc, char **argv, t_server_vars *vars)
 		exit_server(vars, USAGE_MSG_HEADER USAGE_MSG_DESCRIPTION, false);
 }
 
-// /*!
-// ** @brief	initialize server
-// ** @param	none
-// ** @return	none
-// */
-// static void	init_server(void)
-// {
-// 	g_receive_signal = 0;
-// 	g_terminate_flag = false;
-// 	print_pid("server", getpid());
-// 	set_signal();
-// }
-
 /*!
 ** @brief	main (server entry point)
 ** @param	argc	argument count
@@ -77,12 +64,12 @@ int	main(int argc, char **argv)
 	check_argument(argc, argv, &vars);
 	g_receive_signal = 0;
 	g_terminate_flag = false;
-	print_pid("server", getpid());
 	set_signal();
+	print_pid("SERVER", getpid());
 	while (1)
 	{
 		if (g_receive_signal == SIGUSR1 || g_receive_signal == SIGUSR2)
-			recieve_bit(&vars, g_receive_signal);
+			receive_bit(&vars, g_receive_signal);
 		if (g_terminate_flag)
 			exit_server(&vars, "terminating...", true);
 		pause();

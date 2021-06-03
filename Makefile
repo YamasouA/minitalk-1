@@ -6,7 +6,7 @@
 #    By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/30 23:12:52 by mmizuno           #+#    #+#              #
-#    Updated: 2021/06/01 23:51:54 by mmizuno          ###   ########.fr        #
+#    Updated: 2021/06/04 00:14:33 by mmizuno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ NAME				= minitalk
 
 COMMON_INC_DIR		= ./include/
 COMMON_SRC_DIR		= ./source/common/
-COMMON_SRC_NAME		= print_message_common.c
+COMMON_SRC_NAME		= print_message_common.c \
+					  set_signal_common.c
 COMMON_SRCS			= $(addprefix $(COMMON_SRC_DIR), $(COMMON_SRC_NAME))
 COMMON_OBJS			= $(COMMON_SRCS:.c=.o)					  
 
@@ -34,8 +35,7 @@ SERVER_INC_DIR		= ./include/
 SERVER_SRC_DIR		= ./source/server/
 SERVER_SRC_NAME		= init_server_vars.c \
 					  malloc_utility.c \
-					  set_signal.c \
-					  recieve_packet.c \
+					  receive_packet.c \
 					  print_message.c \
 					  main.c
 SERVER_SRCS			= $(addprefix $(SERVER_SRC_DIR), $(SERVER_SRC_NAME))
