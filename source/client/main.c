@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:28:42 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 14:59:52 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 23:32:12 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int	main(int argc, char **argv)
 	check_argument(argc, argv);
 	g_receive_signal = 0;
 	g_terminate_flag = false;
+	set_signal();
 	pid_server = ft_atoi(argv[1]);
 	pid_client = getpid();
-	set_signal();
 	print_pid("CLIENT", pid_client);
 	send_bits_pid_client(pid_server, pid_client);
 	send_bits_message(pid_server, argv[2]);

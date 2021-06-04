@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 01:16:39 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 21:58:18 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 23:38:59 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@
 ** ---------------------------------- message ----------------------------------
 */
 
-# define USAGE_MSG_HEADER		"USAGE: "
-# define ERROR_MSG_HEADER		"ERROR: "
-# define SUCCESS_MSG_HEADER		"SUCCESS: "
+# define USAGE_MSG_HEADER			"USAGE: "
+# define ERROR_MSG_HEADER			"ERROR: "
+# define SUCCESS_MSG_HEADER			"SUCCESS: "
+# define ERROR_MSG_FAIL_SET_SIGNAL	"Fail to set Signal !!"
 
 /*
 ** ----------------------------------- color -----------------------------------
@@ -53,7 +54,6 @@
 ** ================================== library ==================================
 */
 
-// # define _GNU_SOURCE
 # include "../library/libft/includes/libft.h"
 # include <signal.h>
 # include <stdint.h>
@@ -71,7 +71,7 @@ extern bool	g_terminate_flag;
 */
 
 void	print_success_message(char *message);
-void	print_failure_message(char *error_message);
+void	print_failure_message(char *message);
 void	print_pid(char *client_or_server, int32_t pid);
 
 void	set_signal(void);
