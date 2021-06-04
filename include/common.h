@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 01:16:39 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 18:48:53 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 21:58:18 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@
 ** ================================== library ==================================
 */
 
-# define _GNU_SOURCE
+// # define _GNU_SOURCE
 # include "../library/libft/includes/libft.h"
 # include <signal.h>
 # include <stdint.h>

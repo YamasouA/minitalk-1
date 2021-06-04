@@ -6,7 +6,7 @@
 #    By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/30 23:12:52 by mmizuno           #+#    #+#              #
-#    Updated: 2021/06/04 19:33:43 by mmizuno          ###   ########.fr        #
+#    Updated: 2021/06/04 20:48:20 by mmizuno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,33 +81,25 @@ ESC_CLR_PINK		= \033[38;5;213m
 # --------------------------------- $(NAME) ---------------------------------- #
 
 $(NAME):			$(CLIENT_NAME) $(SERVER_NAME)
-					@echo "$(ESC_FNT_BOLD) $(ESC_CLR_GREEN)"
-					@echo "[ $(NAME) successfully compiled !! ]"
-					@echo "$(ESC_RESET)"
+					@echo "$(ESC_FNT_BOLD)$(ESC_CLR_GREEN)[ $(NAME) successfully compiled !! ]$(ESC_RESET)"
 
 # --------------------------------- $(LIBFT) --------------------------------- #
 
 $(LIBFT_NAME):
 					@cd $(LIBFT_DIR) && make
-					@echo "$(ESC_FNT_BOLD) $(ESC_CLR_YELLOW)"
-					@echo "[ $(LIBFT_NAME) successfully compiled !! ]"
-					@echo "$(ESC_RESET)"
+					@echo "$(ESC_FNT_BOLD)$(ESC_CLR_YELLOW)[ $(LIBFT_NAME) successfully compiled !! ]$(ESC_RESET)"
 
 # -------------------------------- $(CLIENT) --------------------------------- #
 
 $(CLIENT_NAME):		$(LIBFT_NAME) $(COMMON_OBJS) $(CLIENT_OBJS)
 					$(CC) $(CFLAGS) $(COMMON_OBJS) $(CLIENT_OBJS) $(LIBDIR) $(LIBS) -o $(CLIENT_NAME)
-					@echo "$(ESC_FNT_BOLD) $(ESC_CLR_YELLOW)"
-					@echo "[ $(CLIENT_NAME) successfully compiled !! ]"
-					@echo "$(ESC_RESET)"
+					@echo "$(ESC_FNT_BOLD)$(ESC_CLR_YELLOW)[ $(CLIENT_NAME) successfully compiled !! ]$(ESC_RESET)"
 
 # -------------------------------- $(SERVER) --------------------------------- #
 
 $(SERVER_NAME):		$(LIBFT_NAME) $(COMMON_OBJS) $(SERVER_OBJS)
 					$(CC) $(CFLAGS) $(COMMON_OBJS) $(SERVER_OBJS) $(LIBDIR) $(LIBS) -o $(SERVER_NAME)
-					@echo "$(ESC_FNT_BOLD) $(ESC_CLR_YELLOW)"
-					@echo "[ $(SERVER_NAME) successfully compiled !! ]"
-					@echo "$(ESC_RESET)"
+					@echo "$(ESC_FNT_BOLD)$(ESC_CLR_YELLOW)[ $(SERVER_NAME) successfully compiled !! ]$(ESC_RESET)"
 
 # ----------------------------------- all ------------------------------------ #
 
