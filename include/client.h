@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:29:52 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 14:59:47 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 20:08:03 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define ERROR_MSG_FAIL_SEND_SIGNAL	"Fail to send Signal !!"
 # define SUCCESS_MSG_DONE_SEND_PID	"Done to send CLIENT ProcessID !!"
 # define ERROR_MSG_FAIL_SEND_PID	"Fail to send CLIENT ProcessID !!"
+# define ERROR_MSG_TERM_CLIENT		"Terminating ..."
 # define ERROR_MSG_FAIL_SEND_MSG	"Fail to send Message !!"
 # define SUCCESS_MSG_DONE_SEND_MSG	"Done to send Message !!"
 

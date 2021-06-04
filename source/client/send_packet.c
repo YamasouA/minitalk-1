@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 00:10:19 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 19:13:44 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 20:07:47 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	receive_ack_message(int send_signal)
 	while (g_receive_signal == 0)
 	{
 		if (g_terminate_flag)
-			exit_client_failure("terminating...");
+			exit_client_failure(ERROR_MSG_TERM_CLIENT);
 	}
 	if (g_receive_signal != send_signal)
 		exit_client_failure(ERROR_MSG_HEADER ERROR_MSG_FAIL_SEND_MSG);
@@ -76,7 +76,7 @@ static void	send_bits(int32_t pid_server, int32_t send_bits,
 			usleep(50);
 		}
 		else
-			usleep(1500);
+			usleep(2000);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:28:42 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 00:14:35 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 20:02:34 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 		if (g_receive_signal == SIGUSR1 || g_receive_signal == SIGUSR2)
 			receive_bit(&vars, g_receive_signal);
 		if (g_terminate_flag)
-			exit_server(&vars, "terminating...", true);
+			exit_server(&vars, SUCCESS_MSG_TERM_SERVER, true);
 		pause();
 	}
 	return (EXIT_SUCCESS);

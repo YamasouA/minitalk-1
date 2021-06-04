@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:29:52 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 01:09:09 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 20:06:56 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define USAGE_MSG_DESCRIPTION		"./server"
 # define ERROR_MSG_FAIL_MALLOC		"Fail to Allocate Memory !!"
 # define ERROR_MSG_FAIL_SEND_ACK	"Fail to send Packet !!"
+# define SUCCESS_MSG_TERM_SERVER	"Terminating ..."
 
 /*
 ** ================================== library ==================================

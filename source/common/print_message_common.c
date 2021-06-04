@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 22:21:53 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 18:51:16 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 19:39:45 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 void	print_success_message(char *message)
 {
 	ft_putstr_fd(ESC_FNT_BOLD ESC_CLR_GREEN, STDOUT_FILENO);
-	ft_putstr_fd(message, STDOUT_FILENO);
+	ft_putendl_fd(message, STDOUT_FILENO);
 	ft_putstr_fd(ESC_RESET, STDOUT_FILENO);
 }
 
@@ -32,7 +32,7 @@ void	print_success_message(char *message)
 void	print_failure_message(char *message)
 {
 	ft_putstr_fd(ESC_FNT_BOLD ESC_CLR_PINK, STDOUT_FILENO);
-	ft_putstr_fd(message, STDOUT_FILENO);
+	ft_putendl_fd(message, STDOUT_FILENO);
 	ft_putstr_fd(ESC_RESET, STDOUT_FILENO);
 }
 
