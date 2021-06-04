@@ -6,7 +6,7 @@
 #    By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/30 23:12:52 by mmizuno           #+#    #+#              #
-#    Updated: 2021/06/04 00:14:33 by mmizuno          ###   ########.fr        #
+#    Updated: 2021/06/04 19:33:43 by mmizuno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ LIBFT_DIR			= ./library/libft/
 LIBFT_INC_DIR		= $(LIBFT_DIR)includes/
 
 CC					= gcc
-CFLAGS				= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS				= -Wall -Wextra -Werror #-g -fsanitize=address
 INCDIR				= -I $(CLIENT_INC_DIR) -I $(SERVER_INC_DIR) -I $(COMMON_INC_DIR) -I $(LIBFT_INC_DIR)
 LIBDIR				= -L $(LIBFT_DIR)
 LIBS				= -l $(LIBFT_LIBNAME)
@@ -56,15 +56,20 @@ RM					= rm -f
 
 # ---------------------------------- color ----------------------------------- #
 
-ESC_CLR_RESET		= \033[00m
-ESC_CLR_BLACK		= \033[30m
-ESC_CLR_RED			= \033[31m
-ESC_CLR_GREEN		= \033[32m
-ESC_CLR_YELLOW		= \033[33m
-ESC_CLR_BLUE		= \033[34m
-ESC_CLR_MAGENTA		= \033[35m
-ESC_CLR_CYAN		= \033[36m
-ESC_CLR_WHITE		= \033[37m
+ESC_RESET			= \033[0m
+ESC_FNT_BOLD		= \033[1m
+ESC_FNT_FINE		= \033[2m
+ESC_FNT_ITALIC		= \033[3m
+ESC_FNT_ULINE		= \033[4m
+ESC_CLR_BLACK		= \033[38;5;00m
+ESC_CLR_RED			= \033[38;5;01m
+ESC_CLR_GREEN		= \033[38;5;02m
+ESC_CLR_YELLOW		= \033[38;5;03m
+ESC_CLR_BLUE		= \033[38;5;04m
+ESC_CLR_MAGENTA		= \033[38;5;05m
+ESC_CLR_CYAN		= \033[38;5;06m
+ESC_CLR_WHITE		= \033[38;5;07m
+ESC_CLR_PINK		= \033[38;5;213m
 
 # =============================== Make Command =============================== #
 
@@ -76,33 +81,33 @@ ESC_CLR_WHITE		= \033[37m
 # --------------------------------- $(NAME) ---------------------------------- #
 
 $(NAME):			$(CLIENT_NAME) $(SERVER_NAME)
-					@echo "$(ESC_CLR_GREEN)"
+					@echo "$(ESC_FNT_BOLD) $(ESC_CLR_GREEN)"
 					@echo "[ $(NAME) successfully compiled !! ]"
-					@echo "$(ESC_CLR_RESET)"
+					@echo "$(ESC_RESET)"
 
 # --------------------------------- $(LIBFT) --------------------------------- #
 
 $(LIBFT_NAME):
 					@cd $(LIBFT_DIR) && make
-					@echo "$(ESC_CLR_YELLOW)"
+					@echo "$(ESC_FNT_BOLD) $(ESC_CLR_YELLOW)"
 					@echo "[ $(LIBFT_NAME) successfully compiled !! ]"
-					@echo "$(ESC_CLR_RESET)"
+					@echo "$(ESC_RESET)"
 
 # -------------------------------- $(CLIENT) --------------------------------- #
 
 $(CLIENT_NAME):		$(LIBFT_NAME) $(COMMON_OBJS) $(CLIENT_OBJS)
 					$(CC) $(CFLAGS) $(COMMON_OBJS) $(CLIENT_OBJS) $(LIBDIR) $(LIBS) -o $(CLIENT_NAME)
-					@echo "$(ESC_CLR_YELLOW)"
+					@echo "$(ESC_FNT_BOLD) $(ESC_CLR_YELLOW)"
 					@echo "[ $(CLIENT_NAME) successfully compiled !! ]"
-					@echo "$(ESC_CLR_RESET)"
+					@echo "$(ESC_RESET)"
 
 # -------------------------------- $(SERVER) --------------------------------- #
 
 $(SERVER_NAME):		$(LIBFT_NAME) $(COMMON_OBJS) $(SERVER_OBJS)
 					$(CC) $(CFLAGS) $(COMMON_OBJS) $(SERVER_OBJS) $(LIBDIR) $(LIBS) -o $(SERVER_NAME)
-					@echo "$(ESC_CLR_YELLOW)"
+					@echo "$(ESC_FNT_BOLD) $(ESC_CLR_YELLOW)"
 					@echo "[ $(SERVER_NAME) successfully compiled !! ]"
-					@echo "$(ESC_CLR_RESET)"
+					@echo "$(ESC_RESET)"
 
 # ----------------------------------- all ------------------------------------ #
 
