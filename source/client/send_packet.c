@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 00:10:19 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 01:21:43 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 13:07:27 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	receive_ack_pid(void)
 	g_receive_signal = 0;
 }
 
-static void receive_ack_message(int send_signal)
+static void	receive_ack_message(int send_signal)
 {
 	while (g_receive_signal == 0)
 	{
@@ -33,7 +33,8 @@ static void receive_ack_message(int send_signal)
 	g_receive_signal = 0;
 }
 
-static void	send_bits(int32_t pid_server, int32_t send_bits, int bit_count, bool ack_mode)
+static void	send_bits(int32_t pid_server, int32_t send_bits,
+												int bit_count, bool ack_mode)
 {
 	int		current_bit;
 	int		send_signal;

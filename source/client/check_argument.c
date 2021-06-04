@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 00:10:19 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/01 22:50:56 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 13:00:08 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,6 @@ static bool	check_pid_server_is_in_range(int32_t pid_server)
 */
 static bool	check_message_is_string(char *send_message)
 {
-	// size_t	message_len;
-
-	// message_len = ft_strlen(send_message);
-
 	if (!send_message)
 		return (false);
 	if (!(*send_message))

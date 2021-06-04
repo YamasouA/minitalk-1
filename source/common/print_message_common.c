@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 22:21:53 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/01 18:00:26 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 12:53:20 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,3 @@ void	print_pid(char *client_or_server, int32_t pid)
 	ft_putendl_fd(" ]", STDOUT_FILENO);
 	ft_putstr_fd(ESC_CLR_RESET, STDOUT_FILENO);
 }
-
-
