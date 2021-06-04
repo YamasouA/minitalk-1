@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:29:52 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/03 21:32:13 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 14:59:47 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	exit_client_failure(char *message);
 
 void	check_argument(int argc, char **argv);
 
-void	send_bits_pid(int32_t pid_server, int32_t send_pid_client);
+void	send_bits_pid_client(int32_t pid_server, int32_t send_pid_client);
 void	send_bits_message(int32_t pid_server, char *send_message);
 
 #endif

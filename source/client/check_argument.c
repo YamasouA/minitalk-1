@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 00:10:19 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 13:00:08 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 14:27:46 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static bool	check_message_is_string(char *send_message)
 }
 
 /*!
-** @brief	check argument
+** @brief	check argument (main function's argument)
 ** @param	argc	argument count
 ** @param	argv	argument contents
 ** @return	none

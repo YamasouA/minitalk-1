@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:28:42 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 01:10:13 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 14:59:52 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	pid_client = getpid();
 	set_signal();
 	print_pid("CLIENT", pid_client);
-	send_bits_pid(pid_server, pid_client);
+	send_bits_pid_client(pid_server, pid_client);
 	send_bits_message(pid_server, argv[2]);
 	return (EXIT_SUCCESS);
 }

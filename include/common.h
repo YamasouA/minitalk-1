@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 01:16:39 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 01:08:29 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/04 18:48:53 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,30 +34,20 @@
 ** ----------------------------------- color -----------------------------------
 */
 
-# define ESC_FNT_RESET		"\033[0m"
+# define ESC_RESET			"\033[0m"
 # define ESC_FNT_BOLD		"\033[1m"
 # define ESC_FNT_FINE		"\033[2m"
 # define ESC_FNT_ITALIC		"\033[3m"
 # define ESC_FNT_ULINE		"\033[4m"
-
-// # define ESC_CLR_RESET		"\033[00m"
-// # define ESC_CLR_BLACK		"\033[30m"
-// # define ESC_CLR_RED		"\033[31m"
-// # define ESC_CLR_GREEN		"\033[32m"
-// # define ESC_CLR_YELLOW		"\033[33m"
-// # define ESC_CLR_BLUE		"\033[34m"
-// # define ESC_CLR_MAGENTA	"\033[35m"
-// # define ESC_CLR_CYAN		"\033[36m"
-// # define ESC_CLR_WHITE		"\033[37m"
-# define ESC_CLR_RESET		"\033[0m"
 # define ESC_CLR_BLACK		"\033[38;5;00m"
-# define ESC_CLR_RED		"\033[38;5;213m"
+# define ESC_CLR_RED		"\033[38;5;01m"
 # define ESC_CLR_GREEN		"\033[38;5;02m"
 # define ESC_CLR_YELLOW		"\033[38;5;03m"
 # define ESC_CLR_BLUE		"\033[38;5;04m"
 # define ESC_CLR_MAGENTA	"\033[38;5;05m"
 # define ESC_CLR_CYAN		"\033[38;5;06m"
 # define ESC_CLR_WHITE		"\033[38;5;07m"
+# define ESC_CLR_PINK		"\033[38;5;213m"
 
 /*
 ** ================================== library ==================================
