@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 00:10:19 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 14:27:46 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/06 00:11:55 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static bool	check_pid_server_is_digit(char *pid_server)
 */
 static bool	check_pid_server_is_in_range(int32_t pid_server)
 {
-	if (pid_server <= 0 || INT32_MAX < pid_server)
+	if (pid_server <= MIN_PID || MAX_PID < pid_server)
 		return (false);
 	return (true);
 }

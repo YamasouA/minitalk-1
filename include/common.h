@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 01:16:39 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 23:38:59 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/06 00:10:42 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 ** =================================== const ===================================
 */
 
-# define PID_BIT_COUNT			32
+# define MIN_PID				100
+# define MAX_PID				99998
+# define PID_BIT_COUNT			18
 # define MSG_BIT_COUNT			8
 
 # define ASCII_EOT				0x4
