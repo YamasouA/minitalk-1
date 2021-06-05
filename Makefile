@@ -6,7 +6,7 @@
 #    By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/30 23:12:52 by mmizuno           #+#    #+#              #
-#    Updated: 2021/06/04 20:48:20 by mmizuno          ###   ########.fr        #
+#    Updated: 2021/06/05 23:34:13 by mmizuno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,10 @@ LIBFT_INC_DIR		= $(LIBFT_DIR)includes/
 
 CC					= gcc
 CFLAGS				= -Wall -Wextra -Werror #-g -fsanitize=address
-INCDIR				= -I $(CLIENT_INC_DIR) -I $(SERVER_INC_DIR) -I $(COMMON_INC_DIR) -I $(LIBFT_INC_DIR)
+INCDIR				= -I $(COMMON_INC_DIR)
+INCDIR				+= -I $(CLIENT_INC_DIR)
+INCDIR				+= -I $(SERVER_INC_DIR)
+INCDIR				+= -I $(LIBFT_INC_DIR)
 LIBDIR				= -L $(LIBFT_DIR)
 LIBS				= -l $(LIBFT_LIBNAME)
 
@@ -80,24 +83,28 @@ ESC_CLR_PINK		= \033[38;5;213m
 
 # --------------------------------- $(NAME) ---------------------------------- #
 
-$(NAME):			$(CLIENT_NAME) $(SERVER_NAME)
+$(NAME):
+					@make $(LIBFT_NAME)
+					@make $(CLIENT_NAME)
+					@make $(SERVER_NAME)
 					@echo "$(ESC_FNT_BOLD)$(ESC_CLR_GREEN)[ $(NAME) successfully compiled !! ]$(ESC_RESET)"
 
 # --------------------------------- $(LIBFT) --------------------------------- #
 
 $(LIBFT_NAME):
 					@cd $(LIBFT_DIR) && make
-					@echo "$(ESC_FNT_BOLD)$(ESC_CLR_YELLOW)[ $(LIBFT_NAME) successfully compiled !! ]$(ESC_RESET)"
 
 # -------------------------------- $(CLIENT) --------------------------------- #
 
-$(CLIENT_NAME):		$(LIBFT_NAME) $(COMMON_OBJS) $(CLIENT_OBJS)
+$(CLIENT_NAME):		$(COMMON_OBJS) $(CLIENT_OBJS)
+					@make $(LIBFT_NAME)
 					$(CC) $(CFLAGS) $(COMMON_OBJS) $(CLIENT_OBJS) $(LIBDIR) $(LIBS) -o $(CLIENT_NAME)
 					@echo "$(ESC_FNT_BOLD)$(ESC_CLR_YELLOW)[ $(CLIENT_NAME) successfully compiled !! ]$(ESC_RESET)"
 
 # -------------------------------- $(SERVER) --------------------------------- #
 
-$(SERVER_NAME):		$(LIBFT_NAME) $(COMMON_OBJS) $(SERVER_OBJS)
+$(SERVER_NAME):		$(COMMON_OBJS) $(SERVER_OBJS)
+					@make $(LIBFT_NAME)
 					$(CC) $(CFLAGS) $(COMMON_OBJS) $(SERVER_OBJS) $(LIBDIR) $(LIBS) -o $(SERVER_NAME)
 					@echo "$(ESC_FNT_BOLD)$(ESC_CLR_YELLOW)[ $(SERVER_NAME) successfully compiled !! ]$(ESC_RESET)"
 
