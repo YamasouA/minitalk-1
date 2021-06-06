@@ -6,35 +6,27 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:29:52 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 20:06:56 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/06 14:39:46 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERVER_H
 # define SERVER_H
 
-/*
-** =================================== const ===================================
-*/
+// ================================= const ================================== //
 
-/*
-** ---------------------------------- message ----------------------------------
-*/
+// -------------------------------- message --------------------------------- //
 
 # define USAGE_MSG_DESCRIPTION		"./server"
 # define ERROR_MSG_FAIL_MALLOC		"Fail to Allocate Memory !!"
 # define ERROR_MSG_FAIL_SEND_ACK	"Fail to send Packet !!"
 # define SUCCESS_MSG_TERM_SERVER	"Terminating ..."
 
-/*
-** ================================== library ==================================
-*/
+// ================================ library ================================= //
 
 # include "common.h"
 
-/*
-** ================================== struct ===================================
-*/
+// ================================= struct ================================= //
 
 typedef struct s_server_vars
 {
@@ -46,9 +38,7 @@ typedef struct s_server_vars
 	int			message_count;
 }				t_server_vars;
 
-/*
-** =========================== prototype declaration ===========================
-*/
+// ========================= prototype declaration ========================== //
 
 void	exit_server(t_server_vars *vars, char *message, bool success);
 

@@ -6,20 +6,18 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:29:52 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 20:08:03 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/06 14:55:26 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLIENT_H
 # define CLIENT_H
 
-/*
-** =================================== const ===================================
-*/
+// ================================= const ================================== //
 
-/*
-** ---------------------------------- message ----------------------------------
-*/
+# define TIMEOUT_COUNT				100000
+
+// -------------------------------- message --------------------------------- //
 
 # define USAGE_MSG_DESCRIPTION		"./clinet [SERVER PID] [SEND MESSAGE]"
 # define ERROR_MSG_PID_TYPE			"SERVER ProcessID must be number !!"
@@ -30,20 +28,17 @@
 # define SUCCESS_MSG_DONE_SEND_PID	"Done to send CLIENT ProcessID !!"
 # define ERROR_MSG_FAIL_SEND_PID	"Fail to send CLIENT ProcessID !!"
 # define ERROR_MSG_TERM_CLIENT		"Terminating ..."
+# define ERROR_MSG_ACK_TIMEOUT		"Timeout !!"
 # define ERROR_MSG_FAIL_SEND_MSG	"Fail to send Message !!"
 # define SUCCESS_MSG_DONE_SEND_MSG	"Done to send Message !!"
 
-/*
-** ================================== library ==================================
-*/
+// ================================ library ================================= //
 
 # include "common.h"
 
-/*
-** =========================== prototype declaration ===========================
-*/
+// ========================= prototype declaration ========================== //
 
-void	exit_client_failure(char *message);
+void	exit_client(char *message, bool success);
 
 void	check_argument(int argc, char **argv);
 

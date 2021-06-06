@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:28:42 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 23:32:12 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/06 14:55:13 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,23 @@ int		g_receive_signal;
 bool	g_terminate_flag;
 
 /*!
-** @brief	exit client (when error occared)
+** @brief	exit client
 ** @param	message		wanna print message
+** @param	success		true: success / false: failure
 ** @return	none
 */
-void	exit_client_failure(char *message)
+void	exit_client(char *message, bool success)
 {
-	print_failure_message(message);
-	exit(EXIT_FAILURE);
+	if (success)
+	{
+		print_success_message(message);
+		exit(EXIT_SUCCESS);
+	}
+	else
+	{
+		print_failure_message(message);
+		exit(EXIT_FAILURE);
+	}
 }
 
 /*!

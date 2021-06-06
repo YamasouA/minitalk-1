@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 00:10:19 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 20:07:47 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/06 17:19:15 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	receive_ack_pid(void)
 	if (g_receive_signal == SIGUSR1)
 		print_success_message(SUCCESS_MSG_HEADER SUCCESS_MSG_DONE_SEND_PID);
 	else
-		exit_client_failure(ERROR_MSG_HEADER ERROR_MSG_FAIL_SEND_PID);
+		exit_client(ERROR_MSG_HEADER ERROR_MSG_FAIL_SEND_PID, false);
 	g_receive_signal = 0;
 }
 
@@ -35,13 +35,20 @@ static void	receive_ack_pid(void)
 */
 static void	receive_ack_message(int send_signal)
 {
+	int		timeout_count;
+
+	timeout_count = TIMEOUT_COUNT;
 	while (g_receive_signal == 0)
 	{
 		if (g_terminate_flag)
-			exit_client_failure(ERROR_MSG_TERM_CLIENT);
+			exit_client(ERROR_MSG_TERM_CLIENT, true);
+		if (timeout_count == 0)
+			exit_client(ERROR_MSG_HEADER ERROR_MSG_ACK_TIMEOUT, false);
+		usleep(10);
+		timeout_count--;
 	}
 	if (g_receive_signal != send_signal)
-		exit_client_failure(ERROR_MSG_HEADER ERROR_MSG_FAIL_SEND_MSG);
+		exit_client(ERROR_MSG_HEADER ERROR_MSG_FAIL_SEND_MSG, false);
 	g_receive_signal = 0;
 }
 
@@ -69,11 +76,11 @@ static void	send_bits(int32_t pid_server, int32_t send_bits,
 		else
 			send_signal = SIGUSR1;
 		if (kill(pid_server, send_signal) == -1)
-			exit_client_failure(ERROR_MSG_HEADER ERROR_MSG_FAIL_SEND_SIGNAL);
+			exit_client(ERROR_MSG_HEADER ERROR_MSG_FAIL_SEND_SIGNAL, false);
 		if (ack_mode)
 		{
 			receive_ack_message(send_signal);
-			usleep(50);
+			usleep(100);
 		}
 		else
 			usleep(2000);
