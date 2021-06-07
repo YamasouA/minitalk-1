@@ -6,19 +6,19 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 00:10:19 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/06 17:19:15 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/07 18:33:22 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/client.h"
 
 /*!
-** @brief	CLIENT receive acknowledgement from SERVER
+** @brief	wait to receive acknowledgement from SERVER
 ** 			to check if could pass Client ProcessID to SERVER
 ** @param	none
 ** @return	none
 */
-static void	receive_ack_pid(void)
+static void	wait_receive_ack_pid(void)
 {
 	if (g_receive_signal == SIGUSR1)
 		print_success_message(SUCCESS_MSG_HEADER SUCCESS_MSG_DONE_SEND_PID);
@@ -28,19 +28,19 @@ static void	receive_ack_pid(void)
 }
 
 /*!
-** @brief	CLIENT receive acknowledgement from SERVER
+** @brief	wait to receive acknowledgement from SERVER
 ** 			to check if could pass Message Bit to SERVER
 ** @param	send_signal		SIGUSR1 / SIGUSR2
 ** @return	none
 */
-static void	receive_ack_message(int send_signal)
+static void	wait_receive_ack_message(int send_signal)
 {
 	int		timeout_count;
 
 	timeout_count = TIMEOUT_COUNT;
 	while (g_receive_signal == 0)
 	{
-		if (g_terminate_flag)
+		if (g_receive_signal == SIGQUIT || g_receive_signal == SIGINT)
 			exit_client(ERROR_MSG_TERM_CLIENT, true);
 		if (timeout_count == 0)
 			exit_client(ERROR_MSG_HEADER ERROR_MSG_ACK_TIMEOUT, false);
@@ -79,11 +79,11 @@ static void	send_bits(int32_t pid_server, int32_t send_bits,
 			exit_client(ERROR_MSG_HEADER ERROR_MSG_FAIL_SEND_SIGNAL, false);
 		if (ack_mode)
 		{
-			receive_ack_message(send_signal);
-			usleep(100);
+			wait_receive_ack_message(send_signal);
+			usleep(50);
 		}
 		else
-			usleep(2000);
+			usleep(1000);
 	}
 }
 
@@ -96,7 +96,7 @@ static void	send_bits(int32_t pid_server, int32_t send_bits,
 void	send_bits_pid_client(int32_t pid_server, int32_t send_pid_client)
 {
 	send_bits(pid_server, send_pid_client, PID_BIT_COUNT, false);
-	receive_ack_pid();
+	wait_receive_ack_pid();
 }
 
 /*!

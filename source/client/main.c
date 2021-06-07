@@ -6,14 +6,13 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:28:42 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/06 14:55:13 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/07 18:15:05 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/client.h"
 
 int		g_receive_signal;
-bool	g_terminate_flag;
 
 /*!
 ** @brief	exit client
@@ -48,7 +47,6 @@ int	main(int argc, char **argv)
 
 	check_argument(argc, argv);
 	g_receive_signal = 0;
-	g_terminate_flag = false;
 	set_signal();
 	pid_server = ft_atoi(argv[1]);
 	pid_client = getpid();

@@ -6,14 +6,13 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:28:42 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/04 23:32:15 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/07 18:16:35 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/server.h"
 
 int		g_receive_signal;
-bool	g_terminate_flag;
 
 /*!
 ** @brief	exit server
@@ -63,14 +62,13 @@ int	main(int argc, char **argv)
 	init_server_vars(&vars);
 	check_argument(argc, argv, &vars);
 	g_receive_signal = 0;
-	g_terminate_flag = false;
 	set_signal();
 	print_pid("SERVER", getpid());
 	while (1)
 	{
 		if (g_receive_signal == SIGUSR1 || g_receive_signal == SIGUSR2)
 			receive_bit(&vars, g_receive_signal);
-		if (g_terminate_flag)
+		if (g_receive_signal == SIGQUIT || g_receive_signal == SIGINT)
 			exit_server(&vars, SUCCESS_MSG_TERM_SERVER, true);
 		pause();
 	}

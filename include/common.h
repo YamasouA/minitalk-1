@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 01:16:39 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/06 14:39:49 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/07 18:14:55 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@
 // ============================ global variable ============================= //
 
 extern int	g_receive_signal;
-extern bool	g_terminate_flag;
 
 /*
 ** =========================== prototype declaration ===========================

@@ -6,7 +6,7 @@
 /*   By: mmizuno <mmizuno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 06:04:38 by mmizuno           #+#    #+#             */
-/*   Updated: 2021/06/06 16:50:56 by mmizuno          ###   ########.fr       */
+/*   Updated: 2021/06/07 18:31:38 by mmizuno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,24 @@ static void	receive_bit_message(t_server_vars *vars, int signal)
 	if (signal == SIGUSR1)
 		vars->message_bits++;
 	vars->message_bit_count++;
-	send_ack(vars, signal);
 	if (vars->message_bit_count == MSG_BIT_COUNT)
 	{
 		if (vars->message_bits == ASCII_EOT)
 		{
 			print_receive_message(vars);
 			free_receive_message(vars);
+			send_ack(vars, signal);
 			init_server_vars(vars);
 		}
 		else
 		{
 			append_receive_message(vars);
+			send_ack(vars, signal);
 			init_server_vars_message_bits(vars);
 		}
 	}
+	else
+		send_ack(vars, signal);
 }
 
 /*!

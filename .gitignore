@@ -10,7 +10,7 @@
 
 # execute file
 *.out
-./clinet
+./client
 ./server
 
 # editor setting directory
